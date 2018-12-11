@@ -7,6 +7,7 @@ use sergmoro1\uploader\widgets\Byone;
 
 $this->title = Module::t('core', 'Update');
 $this->params['breadcrumbs'][] = ['label' => Module::t('core', 'Slides'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = $model->caption;
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

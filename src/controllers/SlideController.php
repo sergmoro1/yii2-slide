@@ -62,7 +62,7 @@ class SlideController extends Controller
         if($this->_model === null)
         {
             $model = $this->models[$id - 1];
-            $this->_model = new Slide(['id' => $model['id']]);
+            $this->_model = new Slide(['id' => $model['id'], 'caption' => $model['caption']]);
         }
         return $this->_model;
     }
