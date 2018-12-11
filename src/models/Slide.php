@@ -17,24 +17,24 @@ use sergmoro1\uploader\models\OneFile;
 
 class Slide extends Model
 {
-	public $id;
-	public $caption;
-	public $vars;
-	
-	public $sizes = [
-		'original' => ['width' => 1650, 'height' => 1100, 'catalog' => 'original'],
-		'main' => ['width' => 600, 'height' => 400, 'catalog' => ''],
-		'thumb' => ['width' => 120, 'height' => 90, 'catalog' => 'thumb'],
-	];
+    public $id;
+    public $caption;
+    public $vars;
+    
+    public $sizes = [
+        'original' => ['width' => 1650, 'height' => 1100, 'catalog' => 'original'],
+        'main' => ['width' => 600, 'height' => 400, 'catalog' => ''],
+        'thumb' => ['width' => 120, 'height' => 90, 'catalog' => 'thumb'],
+    ];
 
     public function behaviors()
     {
         return [
-			'FilePath' => [
-				'class' => FilePath::className(),
-				'file_path' => '/files/slide/',
-			]
-		];
+            'FilePath' => [
+                'class' => FilePath::className(),
+                'file_path' => '/files/slide/',
+            ]
+        ];
     }
 
     public function attributeLabels()
@@ -44,21 +44,21 @@ class Slide extends Model
         ];
     }
 
-	public function findOne($id)
-	{
-		return new Slide(['id' => $id]);
-	}
+    public function findOne($id)
+    {
+        return new Slide(['id' => $id]);
+    }
 
-	public function getFiles()
-	{
+    public function getFiles()
+    {
         return OneFile::find()
             ->where('parent_id=:parent_id AND model=:model', [
-				':parent_id' => $this->id,
-				':model' => 'sergmoro1\slide\models\Slide',
-			])
-			->orderBy('created_at')
+                ':parent_id' => $this->id,
+                ':model' => 'sergmoro1\slide\models\Slide',
+            ])
+            ->orderBy('created_at')
             ->all();
-	}
+    }
     
     public function replace_slash($e)
     {

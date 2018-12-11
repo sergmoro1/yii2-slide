@@ -16,20 +16,20 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class='row'>
 <div class='col-sm-8'>
 
-	<?= Byone::widget([
-		'model' => $model,
-		'minFileSize' => 0.05,
-		'maxFileSize' => 5, // 5Mb
-		//'maxFiles' => 1,
-		'appendixView' => '/slide/appendix',
-		'cropAllowed' => true,
-		'draggable' => true,
-	]) ?>
+    <?= Byone::widget([
+        'model' => $model,
+        'minFileSize' => 0.05,
+        'maxFileSize' => 5, // 5Mb
+        //'maxFiles' => 1,
+        'appendixView' => '/slide/appendix',
+        'cropAllowed' => true,
+        'draggable' => true,
+    ]) ?>
 
 </div>
 
 <div class='col-sm-4'>
-	<?= $this->render('help-update') ?>
+    <?= $this->render('help-update') ?>
 </div>
 
 </div> <!-- ./row -->
