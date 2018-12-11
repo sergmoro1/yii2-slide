@@ -47,9 +47,11 @@ return [
 ];
 </pre>
 
-<h3>Config</h3>
+<h3>Usage</h3>
 
 Every slide has one or more image and description.
+Active only one image - first. Order can be changed by mouse.
+ 
 Description divided by symbol "#" on parts - highlights and link that can be used in a frontend.
 
 <pre>
