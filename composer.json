@@ -1,0 +1,29 @@
+{
+    "name": "sergmoro1/yii2-slide",
+    "version": "1.0.0",
+    "description": "Slides management. Control the specified number of slides. Each slide can be linked to highlights and link.",
+    "keywords": [
+        "yii2",
+        "slides", "carousel"
+    ],
+    "type": "yii2-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sergey Morozov",
+            "email": "sergmoro1@ya.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "*",
+        "sergmoro1/yii2-byone-uploader" : "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "sergmoro1\\slide\\": "src"
+        }
+    }
+}
