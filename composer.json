@@ -1,7 +1,7 @@
 {
     "name": "sergmoro1/yii2-slide",
     "version": "1.0.0",
-    "description": "Slides management. Control the specified number of slides. Each slide can be linked to highlights and link.",
+    "description": "Management a specified number of slides. Each slide can has highlights and link.",
     "keywords": [
         "yii2",
         "slides", "carousel"
