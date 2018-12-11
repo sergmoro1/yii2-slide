@@ -27,6 +27,13 @@ $ composer require --prefer-dist sergmoro1/yii2-slide "dev-master"
 
 <h3>Config</h3>
 
+Make a directory for slides.
+
+<pre>
+mkdir ./frontend/web/files/slide
+chmod -R 777 ./frontend/web/files/slide
+</pre>
+
 Set up in <code>frontend/config/params.php</code>.
 
 <pre>
