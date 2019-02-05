@@ -2,6 +2,8 @@
 /* @var $this yii\web\View */
 /* @var $model common\models\Revolution */
 
+use yii\helpers\ArrayHelper;
+
 use sergmoro1\slide\Module;
 use sergmoro1\uploader\widgets\Byone;
 
@@ -18,9 +20,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= Byone::widget([
         'model' => $model,
-        'minFileSize' => 0.05,
-        'maxFileSize' => 5, // 5Mb
-        //'maxFiles' => 1,
+        'minFileSize' => ArrayHelper::getValue(\Yii::$app->params, 'fileSize.slider.min', 0.01),
+        'maxFileSize' => ArrayHelper::getValue(\Yii::$app->params, 'fileSize.slider.max', 0.1),,
         'appendixView' => '/slide/appendix',
         'cropAllowed' => true,
         'draggable' => true,
