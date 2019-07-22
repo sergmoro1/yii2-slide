@@ -1,37 +1,37 @@
 <?php
 /**
-* @author sergmoro1@ya.ru
-* @license MIT
+* Model for a slide.
 * 
-* Model for a slider.
-* 
+* @author Sergey Morozov <sergmoro1@ya.ru>
 */
 namespace sergmoro1\slide\models;
 
+use Yii;
 use yii\helpers\Html;
 use yii\base\Model;
 
 use sergmoro1\slide\Module;
-use sergmoro1\uploader\FilePath;
+use sergmoro1\uploader\behaviors\HaveFileBehavior;
 use sergmoro1\uploader\models\OneFile;
 
 class Slide extends Model
 {
+    /** @var integer $id Slide index */
     public $id;
+    /** @var string $caption of Slide */
     public $caption;
-    public $vars;
     
     public $sizes = [
-        'original' => ['width' => 1650, 'height' => 1100, 'catalog' => 'original'],
-        'main' => ['width' => 600, 'height' => 400, 'catalog' => ''],
-        'thumb' => ['width' => 120, 'height' => 90, 'catalog' => 'thumb'],
+        'original'  => ['width' => 1650, 'height' => 1100, 'catalog' => 'original'],
+        'main'      => ['width' => 600,  'height' => 400,  'catalog' => ''],
+        'thumb'     => ['width' => 120,  'height' => 90,   'catalog' => 'thumb'],
     ];
 
     public function behaviors()
     {
         return [
-            'FilePath' => [
-                'class' => FilePath::className(),
+            [
+                'class' => HaveFileBehavior::className(),
                 'file_path' => '/files/slide/',
             ]
         ];
@@ -69,17 +69,14 @@ class Slide extends Model
      * With any slide can be conncted one or more file.
      * Only first is used but it's easy to change an order of files.
      * Any file can has a description. Description divided by # on a parts.
-     * @return array of parts
+     * 
+     * @return array of the description parts separated by #
      */
     public function getHighlights()
     {
-        if(count($this->files) > 0)
+        if($this->getFileCount())
         {
-            $vars = json_decode($this->files[0]->defs);
-            if(isset($vars->description))
-            {
-                return explode('#', $vars->description);
-            }
+            return explode('#', $this->getFileDescription());
         }
         return [];
     }
@@ -91,7 +88,7 @@ class Slide extends Model
     public function highlightsToString()
     {
         $out = ''; $i = 0;
-        $tags = \Yii::$app->params['common']['highlights'];
+        $tags = Yii::$app->params['common']['highlights'];
         foreach($this->highlights as $highlight) {
             $out .= '<'. $tags[$i] .'>'. $this->replace_slash($highlight) .'</'. $tags[$i++] .'>';
         }
