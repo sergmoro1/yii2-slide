@@ -19,7 +19,7 @@ Either run
 
 or add
 
-`"sergmoro1/yii2-slide": "dev-master"`
+`"sergmoro1/yii2-slide": "~1.1"`
 
 to the require section of your composer.json.
 
