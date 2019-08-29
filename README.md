@@ -69,4 +69,4 @@ $model->getHighlights();
 ``` 
 
 The highlights are positionally dependent.
-You define the position of each part by yourself and use it in frontend.
+You should define the position of each part by yourself and use it in frontend.
