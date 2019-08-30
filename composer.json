@@ -1,6 +1,5 @@
 {
     "name": "sergmoro1/yii2-slide",
-    "version": "1.0.0",
     "description": "Slides manager. The set of slides can be used in a frontend as a carousel. Each slide can has title, subtitle, link and more and can be set in a backend.",
     "keywords": [
         "yii2",
