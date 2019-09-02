@@ -6,7 +6,8 @@ Advantages
 
 Often Slides are needed for the main page of the site.
 The module allows to manage a specified number of slides.
-Each slide can has title, subtitle, link and more.
+Each slide can has title, subtitle, link and more, 
+count of parts depends on a slide template and your needs.
 
 Installation
 ------------
