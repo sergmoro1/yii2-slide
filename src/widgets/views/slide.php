@@ -9,7 +9,7 @@
 <div class="slideshow">
 	<?php foreach($models as $model): ?>
         <div class="slideshow-img">
-            <img src="<?= $model->getImage('original') ?>" alt="<?= $model->getDescription() ?>" />
+            <img src="<?= $model->getImage('original') ?>" alt="<?= $model->getFileDescription() ?>" />
         </div>
 	<?php endforeach; ?>
 </div>

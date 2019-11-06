@@ -7,7 +7,7 @@ use sergmoro1\slide\models\Slide;
 
 class Slider extends Widget
 {
-    public $view = 'slide';
+    public $viewFile = 'slide';
     public $slides = [];
 
     public function run()
@@ -22,7 +22,7 @@ class Slider extends Widget
 			}
 		}
 		
-		echo $this->render($this->view, [
+		echo $this->render($this->viewFile, [
 			'models' => $models,
 		]);
 	}
