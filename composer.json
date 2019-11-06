@@ -1,0 +1,27 @@
+{
+    "name": "sergmoro1/yii2-slide",
+    "description": "Slides manager. The set of slides can be used in a frontend as a carousel. Each slide can has title, subtitle, link and more and can be set in a backend.",
+    "keywords": [
+        "yii2",
+        "slides", "carousel"
+    ],
+    "type": "yii2-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sergey Morozov",
+            "email": "sergmoro1@ya.ru"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "*",
+        "sergmoro1/yii2-uploader": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "sergmoro1\\slide\\": "src"
+        }
+    }
+}
