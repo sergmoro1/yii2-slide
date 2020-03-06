@@ -21,19 +21,21 @@ class Slide extends Model
     /** @var string $caption of Slide */
     public $caption;
     
-    public $sizes = [
-        'original'  => ['width' => 1650, 'height' => 1100, 'catalog' => 'original'],
-        'main'      => ['width' => 600,  'height' => 400,  'catalog' => ''],
-        'thumb'     => ['width' => 120,  'height' => 90,   'catalog' => 'thumb'],
-    ];
-
+    /**
+     * @inheritdoc
+     */
     public function behaviors()
     {
         return [
             [
                 'class' => HaveFileBehavior::className(),
-                'file_path' => '/files/slide/',
-            ]
+                'file_path' => '/slide/',
+                'sizes' => [
+                    'original'  => ['width' => 1650, 'height' => 1100, 'catalog' => 'original'],
+                    'main'      => ['width' => 600,  'height' => 400,  'catalog' => ''],
+                    'thumb'     => ['width' => 120,  'height' => 90,   'catalog' => 'thumb'],
+                ],
+            ],
         ];
     }
 
@@ -49,17 +51,6 @@ class Slide extends Model
         return new Slide(['id' => $id]);
     }
 
-    public function getFiles()
-    {
-        return OneFile::find()
-            ->where('parent_id=:parent_id AND model=:model', [
-                ':parent_id' => $this->id,
-                ':model' => 'sergmoro1\slide\models\Slide',
-            ])
-            ->orderBy('created_at')
-            ->all();
-    }
-    
     public function replace_slash($e)
     {
         return isset($e) ? str_replace(';', '<br>', $e) : '';
